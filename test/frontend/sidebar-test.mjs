@@ -31,14 +31,14 @@ function Item (state = {}) {
     ? Heading3({
       children: Anchor({
         children: child,
-        href: slugify(child)
+        href: slugify(child),
       }),
-      depth
+      depth,
     })
     : ''
 }
      ${children}
-    `
+    `,
   })
 }
 
@@ -69,26 +69,26 @@ const map = {
   item: Li,
   headings: [
     Heading3,
-    Heading4
-  ]
+    Heading4,
+  ],
 }
 
 test('render object to list', t => {
   const map = {
     list: Ul,
-    item: Li
+    item: Li,
   }
   const data = {
     'one': [
       'a',
       'b',
-      'c'
+      'c',
     ],
     'two': [
       'd',
       'e',
-      'f'
-    ]
+      'f',
+    ],
   }
   const expected = `
 <ul>
@@ -118,7 +118,7 @@ test('render object to list', t => {
 test('render nested object to list', t => {
   const map = {
     list: Ul,
-    item: Li
+    item: Li,
   }
   const data = {
     'label': [
@@ -126,17 +126,17 @@ test('render nested object to list', t => {
         'one': [
           'a',
           'b',
-          'c'
-        ]
+          'c',
+        ],
       },
       {
         'two': [
           'd',
           'e',
-          'f'
-        ]
-      }
-    ]
+          'f',
+        ],
+      },
+    ],
   }
   const expected = `
 <ul>
@@ -177,21 +177,21 @@ test('render deeply nested object to list', t => {
             'a': [
               '1',
               '2',
-              '3'
-            ]
+              '3',
+            ],
           },
           'b',
-          'c'
-        ]
+          'c',
+        ],
       },
       {
         'two': [
           'd',
           'e',
-          'f'
-        ]
-      }
-    ]
+          'f',
+        ],
+      },
+    ],
   }
   const expected = `
 <ul>
@@ -235,13 +235,13 @@ test('should use custom component map', t => {
     'one': [
       'a',
       'b',
-      'c'
+      'c',
     ],
     'two': [
       'd',
       'e',
-      'f'
-    ]
+      'f',
+    ],
   }
   const expected = `
 <ul>
@@ -311,8 +311,8 @@ test('should use custom component map', t => {
     data,
     map: {
       list: Ul,
-      item: Item
-    }
+      item: Item,
+    },
   })
   assert.strictEqual(strip(actual), strip(expected), 'Should render object to custom list', actual)
 })
@@ -324,19 +324,19 @@ test('Should create correct href', t => {
       const href = slugify(path.join('/'))
       assert.ok(href, href)
     },
-    list: function list () {}
+    list: function list () {},
   }
   const data = {
     'one & done': [
       'a',
       'b',
-      'c'
+      'c',
     ],
     'ok "maybe" one or two': [
       'd',
       'e',
-      'f'
-    ]
+      'f',
+    ],
   }
   listFromObject({ data, map, path })
 })

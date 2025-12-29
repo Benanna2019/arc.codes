@@ -12,8 +12,8 @@ test('redirect map middleware', async t => {
       http: {
         method: 'GET',
         path: '/examples',
-      }
-    }
+      },
+    },
   })
   const expectedResponse = {
     statusCode: 301,
@@ -27,9 +27,9 @@ test('redirect map middleware', async t => {
     requestContext: {
       http: {
         method: 'get',
-        path: '/unmapped/path'
-      }
-    }
+        path: '/unmapped/path',
+      },
+    },
   })
   assert.ok(!nonRedirectResponse, "Don't respond to unmapped path")
 
@@ -37,9 +37,9 @@ test('redirect map middleware', async t => {
     requestContext: {
       http: {
         method: 'POST',
-        path: '/examples'
-      }
-    }
+        path: '/examples',
+      },
+    },
   })
   assert.ok(!postResponse, "Don't respond to POST method")
 })
