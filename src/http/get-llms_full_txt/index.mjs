@@ -163,7 +163,7 @@ async function _handler () {
     statusCode: 200,
     headers: {
       'content-type': 'text/plain; charset=utf-8',
-      'cache-control': 'no-cache, no-store, must-revalidate',
+      'cache-control': 'max-age=86400',
     },
     body,
   }

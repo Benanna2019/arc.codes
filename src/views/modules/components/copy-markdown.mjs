@@ -20,7 +20,6 @@ export default function CopyMarkdown (state = {}) {
   <span class="icon fill-current">
     <svg><use xlink:href="#copy"></use></svg>
   </span>
-  <span id="copy-markdown-text">Copy for LLM</span>
 </button>
 `
 }
